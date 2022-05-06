@@ -38,12 +38,12 @@ const Login = (props:propsIn):JSX.Element => {
           </div>
           <div className='login-signup__container-inner-login__fields'>
 
-          <div className='login-signup__container-inner-login__fields--label'>
+          <div className='login-signup__container-inner-login__fields--name'>
         <label htmlFor="name">Name:</label>
-          <label htmlFor="pass">Password:</label>
-          </div>
-          <div className='login-signup__container-inner-login__fields--Inputfields'>
         <input type="text" id='name' />
+          </div>
+          <div className='login-signup__container-inner-login__fields--password'>
+          <label htmlFor="pass">Password:</label>
         <input type="password" id='pass' />
 
           </div>
@@ -63,13 +63,13 @@ const Login = (props:propsIn):JSX.Element => {
           </div>
           <div className='login-signup__container-inner-signup__fields'>
 
-          <div className='login-signup__container-inner-signup__fields--label'>
-        <label htmlFor="name">Name:</label>
-          <label htmlFor="pass">Password:</label>
+          <div className='login-signup__container-inner-signup__fields--name'>
+        <label htmlFor="nameSignup">Name:</label>
+        <input type="text" id='nameSignup' />
           </div>
-          <div className='login-signup__container-inner-signup__fields--Inputfields'>
-        <input type="text" id='name' />
-        <input type="password" id='pass' />
+          <div className='login-signup__container-inner-signup__fields--password'>
+          <label htmlFor="passSignup">Password:</label>
+        <input type="password" id='passSignup' />
 
           </div>
           </div>

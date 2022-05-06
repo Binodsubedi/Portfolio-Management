@@ -185,48 +185,57 @@ p {
 
 .login-signup__container-inner-login__fields {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  height: calc(40% + 7vh);
-  margin-top: -3vh;
-  padding: 0 calc(1rem + 1vw);
-  transform: translateX(-2.8vw);
+  justify-content: center;
 }
 
-.login-signup__container-inner-login__fields--label {
+.login-signup__container-inner-login__fields--name {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   padding: calc(0.4rem + 0.2vw);
-  height: 100%;
 }
 
-.login-signup__container-inner-login__fields--label label {
+.login-signup__container-inner-login__fields--name label {
   font-size: calc(1.8rem + 0.1vw);
   letter-spacing: 0.2rem;
   line-height: 2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.2rem;
 }
 
-.login-signup__container-inner-login__fields--Inputfields {
+.login-signup__container-inner-login__fields--name input {
+  padding-left: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.login-signup__container-inner-login__fields--password {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-evenly;
 }
 
-.login-signup__container-inner-login__fields--Inputfields input {
-  padding-left: 0.2rem;
+.login-signup__container-inner-login__fields--password input {
+  padding-left: 0.3rem;
+}
+
+.login-signup__container-inner-login__fields--password label {
+  font-size: calc(1.8rem + 0.1vw);
+  letter-spacing: 0.2rem;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .login-signup__container-inner-login__button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 30%;
+  height: calc(20% + 9vh);
   justify-content: flex-start;
   width: 23%;
-  transform: translate(1rem, calc(-1rem - 1vh));
 }
 
 .login-signup__container-inner-login__button-container button {
@@ -236,6 +245,7 @@ p {
   border: none;
   cursor: pointer;
   font-size: calc(1.2rem + 0.5vw);
+  margin-top: 0.5rem;
 }
 
 .login-signup__container-inner-signup {
@@ -244,9 +254,8 @@ p {
 
 .login-signup__container-inner-signup__header {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  width: 66%;
+  width: 64%;
   border-bottom: 0.2rem solid black;
 }
 
@@ -258,48 +267,57 @@ p {
 
 .login-signup__container-inner-signup__fields {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  height: calc(40% + 7vh);
-  margin-top: -3vh;
-  padding: 0 calc(1rem + 1vw);
-  transform: translateX(-2.8vw);
+  justify-content: center;
 }
 
-.login-signup__container-inner-signup__fields--label {
+.login-signup__container-inner-signup__fields--name {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   padding: calc(0.4rem + 0.2vw);
-  height: 100%;
 }
 
-.login-signup__container-inner-signup__fields--label label {
+.login-signup__container-inner-signup__fields--name label {
   font-size: calc(1.8rem + 0.1vw);
   letter-spacing: 0.2rem;
   line-height: 2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.2rem;
 }
 
-.login-signup__container-inner-signup__fields--Inputfields {
+.login-signup__container-inner-signup__fields--name input {
+  padding-left: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.login-signup__container-inner-signup__fields--password {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-evenly;
 }
 
-.login-signup__container-inner-signup__fields--Inputfields input {
-  padding-left: 0.2rem;
+.login-signup__container-inner-signup__fields--password input {
+  padding-left: 0.3rem;
+}
+
+.login-signup__container-inner-signup__fields--password label {
+  font-size: calc(1.8rem + 0.1vw);
+  letter-spacing: 0.2rem;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .login-signup__container-inner-signup__button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 30%;
+  height: calc(20% + 9vh);
   justify-content: flex-start;
   width: 23%;
-  transform: translate(1rem, calc(-1rem - 1vh));
 }
 
 .login-signup__container-inner-signup__button-container button {
@@ -309,6 +327,7 @@ p {
   border: none;
   cursor: pointer;
   font-size: calc(1.2rem + 0.5vw);
+  margin-top: 0.5rem;
 }
 
 .login-signup__container .inner-container-active {
