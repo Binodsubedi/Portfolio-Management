@@ -1,0 +1,29 @@
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color: #242582;
+    --secondary-color:#fff;
+    --tertiary-color:#f64c72;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+a{
+    text-decoration: none;
+    font-size: calc(1rem + 0.6vw);
+    font-family:'Montserrat', sans-serif;
+    color:var(--secondaty-color)
+}
+
+p{
+    font-size:1.5rem;
+    color: var(--secondaty-color);
+}
