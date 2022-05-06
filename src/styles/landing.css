@@ -40,6 +40,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .header__logo-container {
@@ -143,21 +146,174 @@ p {
   width: 40%;
   height: 50%;
   background-color: #564747;
+  overflow: hidden;
 }
 
 .login-signup__container-inner {
   height: 100%;
   width: 200%;
   display: flex;
+  transition: all 0.8s ease-in-out;
 }
 
 .login-signup__container-inner-login, .login-signup__container-inner-signup {
   height: 100%;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-signup__container-inner-login {
+  padding: calc(0.5rem + 0.5vw);
+}
+
+.login-signup__container-inner-login__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  border-bottom: 0.2rem solid black;
+}
+
+.login-signup__container-inner-login__header h2 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: calc(1.5rem + 0.5vw);
+}
+
+.login-signup__container-inner-login__fields {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: calc(40% + 7vh);
+  margin-top: -3vh;
+  padding: 0 calc(1rem + 1vw);
+  transform: translateX(-2.8vw);
+}
+
+.login-signup__container-inner-login__fields--label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: calc(0.4rem + 0.2vw);
+  height: 100%;
+}
+
+.login-signup__container-inner-login__fields--label label {
+  font-size: calc(1.8rem + 0.1vw);
+  letter-spacing: 0.2rem;
+  line-height: 2rem;
+}
+
+.login-signup__container-inner-login__fields--Inputfields {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.login-signup__container-inner-login__fields--Inputfields input {
+  padding-left: 0.2rem;
+}
+
+.login-signup__container-inner-login__button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30%;
+  justify-content: flex-start;
+  width: 23%;
+  transform: translate(1rem, calc(-1rem - 1vh));
+}
+
+.login-signup__container-inner-login__button-container button {
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+  background-color: var(--tertiary-color);
+  border: none;
+  cursor: pointer;
+  font-size: calc(1.2rem + 0.5vw);
+}
+
+.login-signup__container-inner-signup {
+  padding: calc(0.5rem + 0.5vw);
+}
+
+.login-signup__container-inner-signup__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 66%;
+  border-bottom: 0.2rem solid black;
+}
+
+.login-signup__container-inner-signup__header h2 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: calc(1.5rem + 0.5vw);
+}
+
+.login-signup__container-inner-signup__fields {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: calc(40% + 7vh);
+  margin-top: -3vh;
+  padding: 0 calc(1rem + 1vw);
+  transform: translateX(-2.8vw);
+}
+
+.login-signup__container-inner-signup__fields--label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: calc(0.4rem + 0.2vw);
+  height: 100%;
+}
+
+.login-signup__container-inner-signup__fields--label label {
+  font-size: calc(1.8rem + 0.1vw);
+  letter-spacing: 0.2rem;
+  line-height: 2rem;
+}
+
+.login-signup__container-inner-signup__fields--Inputfields {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.login-signup__container-inner-signup__fields--Inputfields input {
+  padding-left: 0.2rem;
+}
+
+.login-signup__container-inner-signup__button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30%;
+  justify-content: flex-start;
+  width: 23%;
+  transform: translate(1rem, calc(-1rem - 1vh));
+}
+
+.login-signup__container-inner-signup__button-container button {
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+  background-color: var(--tertiary-color);
+  border: none;
+  cursor: pointer;
+  font-size: calc(1.2rem + 0.5vw);
 }
 
 .login-signup__container .inner-container-active {
-  transform: translateX(50%);
+  transform: translateX(-50%);
+  transition: all 0.8s ease-in-out;
 }
 
 .footer {
