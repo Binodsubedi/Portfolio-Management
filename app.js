@@ -10,8 +10,4 @@ app.use('/api/v1/user', userRouter);
 
 app.use('/api/v1/stocks', stocksRouter);
 
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-  console.log(`listening to port ${port}`);
-});
+module.exports = app;
