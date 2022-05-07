@@ -8,20 +8,20 @@ const Login = (props:propsIn):JSX.Element => {
 
   const innerSlider = useRef<HTMLDivElement>(null);
   
-  const signupSlider = (e)=>{
+  const signupSlider = (e:any)=>{
 
     e.preventDefault();
 
-    innerSlider.current.classList.add('inner-container-active')
+    innerSlider.current?.classList.add('inner-container-active')
 
 
   }
 
-  const signupSliderdefault = (e)=>{
+  const signupSliderdefault = (e:any)=>{
 
     e.preventDefault();
 
-    innerSlider.current.classList.remove('inner-container-active')
+    innerSlider.current?.classList.remove('inner-container-active')
 
 
   }

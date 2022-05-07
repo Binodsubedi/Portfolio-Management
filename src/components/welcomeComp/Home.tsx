@@ -13,9 +13,15 @@ const Home = (props:propsIn):JSX.Element => {
 
   useEffect(()=>{
 
-    heading1.current.classList.add("h1-active");
-    heading2.current.classList.add("h1-active");
-    wholeContainer.current.classList.add("home__box-container-active");
+    if(heading1 && heading1.current){
+      
+      heading1.current.classList.add("h1-active");
+    }
+
+
+
+    heading2.current?.classList.add("h1-active");
+    wholeContainer.current?.classList.add("home__box-container-active");
   
 
   },[])
