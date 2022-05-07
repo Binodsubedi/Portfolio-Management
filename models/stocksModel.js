@@ -22,7 +22,7 @@ const stockSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'please provide total cost of the stake'],
   },
-  soldPricePerUnit: Nuber,
+  soldPricePerUnit: Number,
   profit: {
     type: Number,
     default: 0,
@@ -30,8 +30,8 @@ const stockSchema = new mongoose.Schema({
 });
 
 stockSchema.pre('save', async function (next) {
-  this.date = new Date().toLocaleDateString();
-  this.stockName.toUpperCase();
+  this.date = new Date().toLocaleString();
+  this.stockName = this.stockName.toUpperCase();
   next();
 });
 

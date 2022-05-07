@@ -1,11 +1,14 @@
 const express = require('express');
-
 const router = express.Router();
 
-router.route('/').get((req, res) => {
-  res.status(200).json({
-    status: 'success',
-  });
-});
+const stockController = require('./../controllers/stockController');
+
+router.route('/').get(stockController.getStocks);
+
+router.route('/:name').get(stockController.getStock);
+
+router.route('/createTransaction').post(stockController.createStock);
+
+router.route('/sellStock').post(stockController.sellStocks);
 
 module.exports = router;
