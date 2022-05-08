@@ -1,0 +1,100 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #242582;
+  --secondary-color:#fff;
+  --tertiary-color:#f64c72;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+  font-size: calc(1rem + 0.6vw);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--secondaty-color);
+}
+
+p {
+  font-size: 1.5rem;
+  color: var(--secondaty-color);
+}
+
+.createTransContainer {
+  display: grid;
+  grid-template-columns: [container-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 16.66rem) [col-end]) [center-end] 1fr [container-end];
+  grid-template-rows: 14vh min-content 20vh;
+}
+
+.createBody {
+  grid-column: container-start / container-end;
+  min-height: 86vh;
+  background-color: #564747;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createBody__formContainer {
+  width: 50%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.createBody__formContainer h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: calc(1.4rem + 1vw);
+  width: 20%;
+  color: #00FFFF;
+  border-bottom: 0.2rem solid #00FFFF;
+  text-align: center;
+}
+
+.createBody__formContainer label {
+  font-family: 'Montserrat', sans-serif;
+  color: #00FFFF;
+}
+
+.createBody__formContainer--stockName, .createBody__formContainer--buyer, .createBody__formContainer--quantity, .createBody__formContainer--totalCost {
+  display: flex;
+  flex-direction: column;
+  height: 14%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.createBody__formContainer--stockName label, .createBody__formContainer--buyer label, .createBody__formContainer--quantity label, .createBody__formContainer--totalCost label {
+  font-size: calc(1.2rem + 0.4vw);
+}
+
+.createBody__formContainer--stockName input, .createBody__formContainer--buyer input, .createBody__formContainer--quantity input, .createBody__formContainer--totalCost input {
+  height: 45%;
+  border-radius: 0.4rem;
+  border: none;
+  font-size: calc(1.4rem + 0.2vw);
+  padding-left: 3%;
+  letter-spacing: 0.2rem;
+}
+
+.createBody__formContainer button {
+  padding: 0.5rem calc(1rem + 0.2vw);
+  font-family: 'Montserrat', sans-serif;
+  font-size: calc(1.6rem + 0.2vw);
+  background-color: #4dbc45;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  color: black;
+}
+/*# sourceMappingURL=create.css.map */

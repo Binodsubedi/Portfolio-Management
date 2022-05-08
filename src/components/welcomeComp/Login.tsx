@@ -1,10 +1,42 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
+import {connect} from 'react-redux';
+import {LoginStruc,login} from './../../actions'
+import {StoreState} from './../../reducers'
 
 interface propsIn {
     classNm:string;
+    loggedinUser: LoginStruc;
+    login : any;
+
+
+    
 }
 
-const Login = (props:propsIn):JSX.Element => {
+const Login = (props:propsIn) => {
+
+  // useEffect(()=>{
+
+  //   // (async()=>{
+
+  //   //   // await props.login('BinodSubedi','Hellothere');
+
+  //   //   // setTimeout(()=>{
+  //   //   //   console.log(props.loggedinUser.status)
+  //   //   // },2000);
+      
+  //   //   // console.log(props.loggedinUser.status);
+
+  //   // })();
+
+  //   props.login('BinodSubedi','Hellothere');
+
+  //   console.log(props.loggedinUser.status);
+
+    
+
+  //   // console.log(props.loggedinUser.status);
+
+  // },[props.loggedinUser.status])
 
   const innerSlider = useRef<HTMLDivElement>(null);
   
@@ -87,4 +119,8 @@ const Login = (props:propsIn):JSX.Element => {
   )
 }
 
-export default Login
+const mapStateToProps = (state:StoreState):{loggedinUser:LoginStruc}=>{
+  return {loggedinUser: state.loggedinUser}
+}
+
+export default connect(mapStateToProps,{login})(Login);

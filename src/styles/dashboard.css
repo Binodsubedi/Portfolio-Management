@@ -1,0 +1,113 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #242582;
+  --secondary-color:#fff;
+  --tertiary-color:#f64c72;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+  font-size: calc(1rem + 0.6vw);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--secondaty-color);
+}
+
+p {
+  font-size: 1.5rem;
+  color: var(--secondaty-color);
+}
+
+.Dashboardcontainer {
+  display: grid;
+  grid-template-columns: [container-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 16.66rem) [col-end]) [center-end] 1fr [container-end];
+  grid-template-rows: 14vh min-content 20vh;
+}
+
+.dashboardheader {
+  grid-column: container-start / container-end;
+  background-color: lightcoral;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 calc(2.5rem + 1vw);
+}
+
+.dashboardheader__searchBar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+  height: 45%;
+}
+
+.dashboardheader__searchBar input {
+  margin-right: 1.2rem;
+  padding-left: calc(0.7rem + 0.2vw);
+  height: 60%;
+  letter-spacing: 0.3rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+.dashboardheader__searchBar button {
+  padding: calc(0.3rem + 0.3vw);
+  border-radius: 0.6rem;
+  border: none;
+  letter-spacing: 0.2rem;
+}
+
+.dashboardheader__optionsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45%;
+  width: 38%;
+}
+
+.dashboardheader__optionsContainer--links {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding-right: calc(2rem + 1vw);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboardheader__optionsContainer--links li {
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.2rem;
+  font-size: calc(1rem + 0.6vw);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.dashboardheader__optionsContainer--links li:last-child {
+  border: 0.2rem solid black;
+  padding: calc(0.4rem + 0.2vw);
+}
+
+.dashboardheader__optionsContainer--links li:last-child:hover {
+  background-color: #dababa;
+  transition: all 0.3s ease-in-out;
+}
+
+.body {
+  grid-column: container-start / container-end;
+  min-height: 86vh;
+  background-color: #564747;
+}
+/*# sourceMappingURL=dashboard.css.map */
