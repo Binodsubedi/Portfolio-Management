@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './dashboardComp/Header'
 import Body from './dashboardComp/Body'
 import Footer from './welcomeComp/Footer'
 import './../styles/dashboard.css'
+import { connect } from 'react-redux'
+import { StockData, getStocks } from '../actions'
+import { StoreState } from '../reducers'
 
-const Dashboard = () => {
+
+interface PropsIn{
+  stocks: StockData[];
+  getStocks: any
+}
+
+
+const Dashboard = (props:PropsIn) => {
+
+
+  // useEffect(()=>{
+
+  //   props.getStocks();
+  //   console.log(props.stocks);
+
+  // },[props.stocks.length])
+
+
   return (
     <div className='Dashboardcontainer'>
     <Header classNm='dashboardheader'/>
@@ -14,4 +34,15 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard;
+
+const mapStateToProps = (state:StoreState):{stocks:StockData[]}=>{
+  return {
+          stocks: state.stocks
+  }
+}
+
+
+export default connect(
+  mapStateToProps,
+  {getStocks}
+)(Dashboard);

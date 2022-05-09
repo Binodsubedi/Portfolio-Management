@@ -6,6 +6,27 @@ export interface LoginStruc {
     data:string
 }
 
+export interface StockData{
+    id:string;
+    stockName:string;
+    Buyer:string;
+    boughtQuantity:Number;
+    totalCostPrice:Number;
+    profit:Number;
+    date: Date
+
+}
+
+export interface StocksStruc{
+    status:string;
+    stocks: StockData[]
+}
+
+export interface StocksFetchAction{
+    type:ActionTypes.fetchStocks;
+    payload: StocksStruc
+}
+
 export interface LoginUserAction {
     type: ActionTypes.loginUser;
     payload: LoginStruc
@@ -21,5 +42,17 @@ export const login = (Username:string,password:string)=>{
             payload:response.data
         })
 
+    }
+}
+
+export const getStocks = ()=>{
+    return async (dispatch:Dispatch)=>{
+
+        const response = await axios.get('http://localhost:3000/api/v1/stocks');
+
+        dispatch<StocksFetchAction>({
+            type: ActionTypes.fetchStocks,
+            payload: response.data
+        })
     }
 }
