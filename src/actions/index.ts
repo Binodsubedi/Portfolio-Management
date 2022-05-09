@@ -56,3 +56,16 @@ export const getStocks = ()=>{
         })
     }
 }
+
+export const searchStock = (stockName:string)=>{
+    return async(dispatch:Dispatch)=>{
+
+        const response = await axios.get(`http://localhost:3000/api/v1/stocks/${stockName}`);
+
+        dispatch<StocksFetchAction>({
+            type: ActionTypes.fetchStocks,
+            payload: response.data
+        })
+
+    }
+}

@@ -14,3 +14,12 @@ export const fetchStocksReducer = (state:StockData[] = [] , action:StocksFetchAc
     }
 
 }
+
+// export const fetchSearchReducer = (state:StockData[] = [], action:StocksFetchAction)=>{
+
+//     switch (action.type){
+//         case ActionTypes.
+//     }
+
+// }
+
