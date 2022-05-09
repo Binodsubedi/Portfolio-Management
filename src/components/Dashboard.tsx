@@ -17,12 +17,14 @@ interface PropsIn{
 const Dashboard = (props:PropsIn) => {
 
 
-  // useEffect(()=>{
+  useEffect(()=>{
+    if(props.stocks.length == 0){
 
-  //   props.getStocks();
-  //   console.log(props.stocks);
+      props.getStocks();
+    }
+    console.log(props.stocks);
 
-  // },[props.stocks.length])
+  },[props.stocks.length])
 
 
   return (

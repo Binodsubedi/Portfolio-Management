@@ -7,7 +7,7 @@ export interface LoginStruc {
 }
 
 export interface StockData{
-    id:string;
+    _id:string;
     stockName:string;
     Buyer:string;
     boughtQuantity:Number;

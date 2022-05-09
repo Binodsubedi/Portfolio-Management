@@ -109,5 +109,56 @@ p {
   grid-column: container-start / container-end;
   min-height: 86vh;
   background-color: #564747;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: calc(1.4rem + 0.5vw);
+  justify-items: center;
+}
+
+.body__card-container {
+  padding: calc(1.5rem + 1vh);
+  height: min-content;
+  margin: calc(1.5rem + 0.5vw) 0;
+  border: 0.2rem solid var(--tertiary-color);
+  border-radius: 0.6rem;
+}
+
+.body__card-container--inner {
+  height: calc(3.5rem + 0.6vw);
+}
+
+.body__card-container--inner label {
+  font-size: calc(1.3rem + 0.2vw);
+  color: coral;
+}
+
+.body__card-container--inner h2 {
+  color: aquamarine;
+}
+
+.body__card-container div:last-child {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.body__card-container div:last-child input {
+  border: none;
+  border-radius: 0.4rem;
+  padding-left: 0.3rem;
+}
+
+.body__card-container div:last-child button {
+  align-self: center;
+  margin-top: calc(0.8rem + 0.2vw);
+  padding: 0.3rem;
+  width: calc(5rem + 0.3vw);
+  border-radius: 0.6rem;
+  font-size: calc(1.2rem + 0.3vw);
+  background-color: #dababa;
+  cursor: pointer;
+  border: none;
 }
 /*# sourceMappingURL=dashboard.css.map */

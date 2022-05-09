@@ -82,6 +82,61 @@
     grid-column: container-start / container-end;
     min-height: 86vh;
     background-color: rgb(86, 71, 71);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap: calc(1.4rem + 0.5vw);
+    justify-items: center;
+    // align-items: center;
+
+    &__card-container{
+        padding: calc(1.5rem + 1vh);
+        height: min-content;
+        margin:calc(1.5rem + 0.5vw) 0;
+        border: 0.2rem solid var(--tertiary-color);
+        border-radius: 0.6rem;
+        
+        &--inner{
+            height: calc(3.5rem + 0.6vw);
+
+            label{
+                font-size: calc(1.3rem + 0.2vw);
+                color: coral;
+            }
+            h2{
+                // color:#00FFFF;
+                color:aquamarine;
+            }
+        }
+
+        div:last-child{
+            margin-top: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            input{
+                border: none;
+                border-radius: 0.4rem;
+                // height: 3rem;
+                padding-left: 0.3rem;
+            }
+
+            button{
+               align-self: center;
+               margin-top: calc(0.8rem + 0.2vw);
+               padding: 0.3rem;
+               width: calc(5rem + 0.3vw);
+               border-radius: 0.6rem;
+               font-size: calc(1.2rem + 0.3vw);
+               background-color: #dababa;
+               cursor: pointer;
+               border: none;
+            }
+        }
+
+    }
+
 }
 
 
