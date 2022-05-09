@@ -1,7 +1,7 @@
 const Stock = require('./../models/stocksModel');
 
 exports.getStocks = async (req, res) => {
-  const stocks = await Stock.find();
+  const stocks = await Stock.find().select('-__v');
 
   res.status(200).json({
     status: 'success',
@@ -12,11 +12,11 @@ exports.getStocks = async (req, res) => {
 exports.getStock = async (req, res) => {
   let stockName = req.params.name.toUpperCase();
 
-  const specificStock = await Stock.find({ stockName });
+  const specificStock = await Stock.find({ stockName }).select('-__v');
 
   res.status(200).json({
     status: 'Success',
-    data: specificStock,
+    stocks: specificStock,
   });
 };
 
