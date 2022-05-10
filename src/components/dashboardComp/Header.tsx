@@ -36,6 +36,11 @@ const Header = (props:propsIn) => {
 
   return (
     <div className={props.classNm}>
+      <div className="dashboardheader__bars">
+        <div className="dashboardheader__bars-1"></div>
+        <div className="dashboardheader__bars-2"></div>
+        <div className="dashboardheader__bars-3"></div>
+      </div>
       <div className='dashboardheader__searchBar'>
         
         <input type="text" placeholder='Search' ref={searchBox} />

@@ -22,7 +22,9 @@ const cardsMaker = ():any=>{
 
 
   return (
-    <div className={props.classNm}>{cardsMaker()}</div>
+    <div className={props.classNm}>{
+      cardsMaker()
+      }</div>
   )
 }
 

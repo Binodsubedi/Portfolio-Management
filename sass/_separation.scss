@@ -124,6 +124,11 @@
     &__container{
         width: calc(36% + 7vw);
         // height: 50%;
+        // min-width:16.5rem;
+        // min-width:min-content;
+        @include media-small{
+            width: 57%;
+        }
         height: calc(44% + 4vh);
         // border: 0.2rem solid black;
         background-color: rgb(86, 71, 71);

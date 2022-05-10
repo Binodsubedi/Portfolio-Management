@@ -149,6 +149,12 @@ p {
   overflow: hidden;
 }
 
+@media screen and (max-width: 420px) {
+  .login-signup__container {
+    width: 57%;
+  }
+}
+
 .login-signup__container-inner {
   height: 100%;
   width: 200%;
