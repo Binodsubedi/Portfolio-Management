@@ -1,7 +1,8 @@
 const Stock = require('./../models/stocksModel');
 
 exports.getStocks = async (req, res) => {
-  const stocks = await Stock.find().select('-__v');
+  const Buyer = req.params;
+  const stocks = await Stock.find(Buyer).select('-__v');
 
   res.status(200).json({
     status: 'success',
@@ -10,9 +11,11 @@ exports.getStocks = async (req, res) => {
 };
 
 exports.getStock = async (req, res) => {
-  let stockName = req.params.name.toUpperCase();
+  let stockName = req.params.stockName.toUpperCase();
+  let { Buyer } = req.params;
+  // console.log(req.params);
 
-  const specificStock = await Stock.find({ stockName }).select('-__v');
+  const specificStock = await Stock.find({ stockName, Buyer }).select('-__v');
 
   res.status(200).json({
     status: 'Success',
@@ -40,8 +43,7 @@ exports.createStock = async (req, res) => {
 
 exports.sellStocks = async (req, res) => {
   try {
-    const { date, stockName, Buyer, soldQuantity, soldPricePerUnit, profit } =
-      req.body;
+    const { date, stockName, Buyer, soldQuantity, soldPricePerUnit } = req.body;
 
     // const specificStock = await Stock.find({ date, stockName, Buyer }).update({
     //   soldQuantity,
@@ -53,15 +55,24 @@ exports.sellStocks = async (req, res) => {
 
     specificStock = specificStock[0];
 
+    const boughtPerEach =
+      specificStock.totalCostPrice / specificStock.boughtQuantity;
+    // console.log(boughtPerEach);
+
     // console.log(specificStock[0].soldQuantity);
 
     if (specificStock.soldQuantity) {
       //   console.log(specificStock.soldQuantity);
-      const newSoldQuantity = specificStock.soldQuantity + soldQuantity;
-      const newSoldPricePerUnit = Math.floor(
-        (specificStock.soldPricePerUnit + soldPricePerUnit) / newSoldQuantity
-      );
-      const newprofit = specificStock.profit + profit;
+      const newSoldQuantity = specificStock.soldQuantity * 1 + soldQuantity * 1;
+      let newSoldPricePerUnit =
+        specificStock.soldPricePerUnit * specificStock.soldQuantity +
+        soldQuantity * soldPricePerUnit;
+
+      newSoldPricePerUnit = Math.floor(newSoldPricePerUnit / newSoldQuantity);
+
+      const newprofit =
+        specificStock.profit +
+        (soldPricePerUnit - boughtPerEach) * soldQuantity;
 
       await Stock.findOneAndUpdate(
         { date, stockName, Buyer },
@@ -72,6 +83,9 @@ exports.sellStocks = async (req, res) => {
         }
       );
     } else {
+      const profit = (soldPricePerUnit - boughtPerEach) * soldQuantity;
+
+      // console.log(soldPricePerUnit, boughtPerEach, profit);
       await Stock.findOneAndUpdate(
         { date, stockName, Buyer },
         {
