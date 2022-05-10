@@ -12,6 +12,12 @@ interface propsIn{
     searchStock:any;
 }
 
+const logoutUser = (e:any)=>{
+  e.preventDefault();
+
+  window.location.assign('/');
+}
+
 const Header = (props:propsIn) => {
 
   const searchBox = useRef<HTMLInputElement>(null);
@@ -41,7 +47,7 @@ const Header = (props:propsIn) => {
           {/* <li>Create</li> */}
           <Link to='/dashboard'>Dashboard</Link>
           <Link to='/create'>Create</Link>
-          <li>Logout</li>
+          <li onClick={e=>logoutUser(e)}>Logout</li>
         </ul>
       </div>
     </div>

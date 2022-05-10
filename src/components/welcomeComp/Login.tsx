@@ -48,7 +48,9 @@ const Login = (props:propsIn) => {
 
   const usernameField = useRef<HTMLInputElement>(null);
   const passwordField = useRef<HTMLInputElement>(null);
-
+  
+  const usernameSignupField = useRef<HTMLInputElement>(null);
+  const passwordSignupField = useRef<HTMLInputElement>(null);
   
   const signupSlider = (e:any)=>{
 
@@ -111,6 +113,23 @@ const Login = (props:propsIn) => {
 
   }
 
+  const onSignup = async (e:any)=>{
+
+    e.preventDefault();
+    const reqBody = {
+      Username: usernameSignupField.current?.value,
+      password: passwordSignupField.current?.value
+    }
+
+    const res = await axios.post('http://localhost:3000/api/v1/user/signup',reqBody);
+
+    if(res.data.status === 'success'){
+      alert('New Account has been created');
+    }
+
+
+  }
+
   return (
     <div className={props.classNm}>
       <div className='login-signup__container'>
@@ -150,17 +169,17 @@ const Login = (props:propsIn) => {
 
           <div className='login-signup__container-inner-signup__fields--name'>
         <label htmlFor="nameSignup">Name:</label>
-        <input type="text" id='nameSignup' />
+        <input type="text" id='nameSignup' ref={usernameSignupField} />
           </div>
           <div className='login-signup__container-inner-signup__fields--password'>
           <label htmlFor="passSignup">Password:</label>
-        <input type="password" id='passSignup' />
+        <input type="password" id='passSignup' ref={passwordSignupField} />
 
           </div>
           </div>
 
           <div className='login-signup__container-inner-signup__button-container'>
-          <button>Signup</button>
+          <button onClick={e=>onSignup(e)}>Signup</button>
           <a href="" onClick={(e)=>signupSliderdefault(e)}>Login</a>
           </div>
 
