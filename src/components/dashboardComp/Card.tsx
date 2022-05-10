@@ -1,5 +1,8 @@
-import React from 'react'
-import { StockData } from '../../actions'
+import axios from 'axios';
+import React, { useRef } from 'react'
+import { StockData, getStocks } from '../../actions'
+import {connect} from 'react-redux';
+
 
 // export interface PropsCard{
 
@@ -16,13 +19,18 @@ import { StockData } from '../../actions'
 // interface StockData implements Array<string|Number>{
     
 // }
+
 interface newType extends StockData{
     soldQuantity?:Number;
     soldPricePerUnit?: Number;
+    
 }
 
-const Card = (props:{data:newType}) => {
+const Card = (props:{data:newType,getStocks:any}) => {
     const {data} = props;
+
+    const soldQuantity = useRef<HTMLInputElement>(null);
+    const soldPricePerUnit = useRef<HTMLInputElement>(null);
 
     // const itterateProps = ()=>{
 
@@ -37,6 +45,28 @@ const Card = (props:{data:newType}) => {
 
         
     // }
+
+    const sellClick = async (e:any)=>{
+        e.preventDefault();
+
+        const reqBody = {
+            date:data.date,
+            stockName:data.stockName,
+            Buyer: data.Buyer,
+            soldQuantity: soldQuantity.current?.value,
+            soldPricePerUnit: soldPricePerUnit.current?.value
+        }
+
+        const res = await axios.post('http://localhost:3000/api/v1/stocks/sellStock',reqBody);
+
+        if(res.data.status === 'Success'){
+            props.getStocks(data.Buyer);
+            alert('Shares Sold Accounted');
+        }
+
+
+    }
+
 
   return (<div className='body__card-container'>
     <div className="body__card-container--inner card-container--inner-1">
@@ -68,17 +98,21 @@ const Card = (props:{data:newType}) => {
         <h2>{`${data.soldPricePerUnit? data.soldPricePerUnit : 0 }`}</h2>
     </div>
     <div className="body__card-container--inner card-container--inner-8">
-    <label >Sold shares:</label>
+    <label >Profit:</label>
         <h2>{`${data.profit}`}</h2>
     </div>
 
-    <div className="body__card-container--inner card-container--inner-8">
-        <input type="number" placeholder='Sell Shares' />
-        <button >Sell</button>
+    <div className="body__card-container--inner card-container--inner-9">
+        <div className="body__card-container--inner__input">
+        <input type="number" placeholder='shares' ref={soldQuantity} />
+        <input type="number" placeholder='price/unit' ref={soldPricePerUnit} />
+        </div>
+        <button onClick={e=>sellClick(e)} >Sell</button>
     </div>
     
   </div>
   )
 }
 
-export default Card
+
+export default connect(null, {getStocks})(Card);

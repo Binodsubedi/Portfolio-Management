@@ -2,13 +2,14 @@ import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import { StoreState } from '../../reducers'
-import { StockData, searchStock } from '../../actions'
+import { StockData, searchStock, LoginStruc } from '../../actions'
 
 
 
 interface propsIn{
     classNm:string;
     stocks: StockData[];
+    loggedinUser:LoginStruc
     searchStock:any;
 }
 
@@ -26,7 +27,7 @@ const Header = (props:propsIn) => {
 
     e.preventDefault();
 
-    props.searchStock(searchBox.current?.value);
+    props.searchStock(searchBox.current?.value,props.loggedinUser.data);
 
     console.log(props.stocks)
 
@@ -54,10 +55,11 @@ const Header = (props:propsIn) => {
   )
 }
 
-const mapStateToProps = (state:StoreState):{stocks: StockData[]}=>{
+const mapStateToProps = (state:StoreState):{stocks: StockData[],loggedinUser:LoginStruc}=>{
 
   return {
-    stocks:state.stocks
+    stocks:state.stocks,
+    loggedinUser: state.loggedinUser
   }
 
 }

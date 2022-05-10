@@ -57,10 +57,10 @@ export const getStocks = (Username:string)=>{
     }
 }
 
-export const searchStock = (stockName:string)=>{
+export const searchStock = (stockName:string, Buyer:string)=>{
     return async(dispatch:Dispatch)=>{
 
-        const response = await axios.get(`http://localhost:3000/api/v1/stocks/${stockName}`);
+        const response = await axios.get(`http://localhost:3000/api/v1/stocks/${stockName}/${Buyer}`);
 
         dispatch<StocksFetchAction>({
             type: ActionTypes.fetchStocks,

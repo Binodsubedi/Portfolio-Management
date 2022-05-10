@@ -84,14 +84,19 @@
     background-color: rgb(86, 71, 71);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    // grid-template-rows: repeat(auto-fit, 80rem);
     grid-gap: calc(1.4rem + 0.5vw);
+    // grid-row-gap: calc(2.3rem + 0.5vw);
+
     justify-items: center;
+    // align-content: center;
     // align-items: center;
+    padding: 1rem 0 calc(3rem + 0.8vh);
 
     &__card-container{
         padding: calc(1.5rem + 1vh);
-        height: min-content;
         margin:calc(1.5rem + 0.5vw) 0;
+        height: 100%;
         border: 0.2rem solid var(--tertiary-color);
         border-radius: 0.6rem;
         
@@ -106,21 +111,49 @@
                 // color:#00FFFF;
                 color:aquamarine;
             }
+
+            
+            &__input{
+                display: flex;
+                flex-direction: column;
+                input{
+                    border: none;
+                    border-radius: 0.8rem;
+                    padding-left: 0.8rem;
+                    letter-spacing: 0.2rem;
+                    text-align: center;
+                }
+
+                input:first-child{
+                    margin-bottom: 0.6rem;
+                }
+            }
         }
 
         div:last-child{
-            margin-top: 1.6rem;
+            margin-top: 1.2rem;
+            width: min-content;
+            height: calc(2.5rem + 0.2vw);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
 
-            input{
-                border: none;
-                border-radius: 0.4rem;
-                // height: 3rem;
-                padding-left: 0.3rem;
-            }
+            // input{
+            //     border: none;
+            //     border-radius: 0.4rem;
+            //     // height: 3rem;
+            //     padding-left: 0.3rem;
+            // }
+            // &__input{
+            //     display: flex;
+            //     input{
+            //         width: 3rem;
+            //         // border: none;
+            //         border-radius: 0.8rem;
+            //         padding-left: 0.3rem;
+            //     }
+            // }
 
             button{
                align-self: center;
@@ -138,5 +171,7 @@
     }
 
 }
+
+
 
 
