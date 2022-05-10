@@ -1,18 +1,24 @@
+import axios from 'axios';
 import React, { useEffect, useRef } from 'react'
 import {connect} from 'react-redux';
-import {LoginStruc,login} from './../../actions'
+import {getStocks, StockData,login,LoginStruc} from './../../actions'
 import {StoreState} from './../../reducers'
+import {useNavigate} from 'react-router-dom';
 
 interface propsIn {
     classNm:string;
     loggedinUser: LoginStruc;
-    login : any;
+    login:any;
+    getStocks : any;
+    stocks: StockData[]
 
 
     
 }
 
 const Login = (props:propsIn) => {
+
+  let navigate = useNavigate();
 
   // useEffect(()=>{
 
@@ -39,6 +45,10 @@ const Login = (props:propsIn) => {
   // },[props.loggedinUser.status])
 
   const innerSlider = useRef<HTMLDivElement>(null);
+
+  const usernameField = useRef<HTMLInputElement>(null);
+  const passwordField = useRef<HTMLInputElement>(null);
+
   
   const signupSlider = (e:any)=>{
 
@@ -58,6 +68,49 @@ const Login = (props:propsIn) => {
 
   }
 
+  const doLogin = async (e:any)=>{
+
+    e.preventDefault();
+
+    const Username = usernameField.current?.value;
+    const password = passwordField.current?.value;
+
+    console.log({Username,password});
+
+    // props.login(Username, password);
+    
+    const resp = await axios.post('http://localhost:3000/api/v1/user/login',{Username, password});
+
+    // console.log(resp.data)
+    // console.log()
+    
+    if(resp.data.status === 'success'){
+
+      props.getStocks(Username)
+
+      // console.log(props.stocks)
+      props.login(Username, password);
+
+      setTimeout(()=>{
+
+        navigate('/dashboard');
+      
+      },1000)
+      // while(props.loggedinUser.data === 'unsent'){
+        
+      // }
+      
+        // navigate('/dashboard');
+      
+      // window.location.assign('/dashboard');
+      // useNavigate('/',{})
+      
+    }
+
+
+
+  }
+
   return (
     <div className={props.classNm}>
       <div className='login-signup__container'>
@@ -72,17 +125,17 @@ const Login = (props:propsIn) => {
 
           <div className='login-signup__container-inner-login__fields--name'>
         <label htmlFor="name">Name:</label>
-        <input type="text" id='name' />
+        <input type="text" id='name' ref={usernameField} />
           </div>
           <div className='login-signup__container-inner-login__fields--password'>
           <label htmlFor="pass">Password:</label>
-        <input type="password" id='pass' />
+        <input type="password" id='pass' ref={passwordField} />
 
           </div>
           </div>
 
           <div className='login-signup__container-inner-login__button-container'>
-          <button>Login</button>
+          <button onClick={(e)=>doLogin(e)}>Login</button>
           <a href="" onClick={(e)=>signupSlider(e)}>Signup</a>
           </div>
 
@@ -119,8 +172,9 @@ const Login = (props:propsIn) => {
   )
 }
 
-const mapStateToProps = (state:StoreState):{loggedinUser:LoginStruc}=>{
-  return {loggedinUser: state.loggedinUser}
+const mapStateToProps = (state:StoreState):{stocks:StockData[], loggedinUser:LoginStruc}=>{
+  return {stocks: state.stocks,
+  loggedinUser:state.loggedinUser}
 }
 
-export default connect(mapStateToProps,{login})(Login);
+export default connect(mapStateToProps,{getStocks,login})(Login);

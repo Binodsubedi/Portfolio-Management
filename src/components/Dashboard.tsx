@@ -4,12 +4,13 @@ import Body from './dashboardComp/Body'
 import Footer from './welcomeComp/Footer'
 import './../styles/dashboard.css'
 import { connect } from 'react-redux'
-import { StockData, getStocks } from '../actions'
+import { StockData, getStocks, LoginStruc } from '../actions'
 import { StoreState } from '../reducers'
 
 
 interface PropsIn{
   stocks: StockData[];
+  loggedinUser:LoginStruc;
   getStocks: any
 }
 
@@ -17,14 +18,32 @@ interface PropsIn{
 const Dashboard = (props:PropsIn) => {
 
 
+
   useEffect(()=>{
-    if(props.stocks.length == 0){
+    // if(props.stocks.length == 0){
 
-      props.getStocks();
-    }
-    console.log(props.stocks);
+    //       // props.getStocks(props.loggedinUser.data);
+    //       // console.log(props.loggedinUser.data);
+        
 
-  },[props.stocks.length])
+    //     //   console.log(props.loggedinUser.data);
+    //     // props.getStocks(props.loggedinUser.data);
+    //   // console.log(props.loggedinUser.data)
+
+    // }
+    // console.log(props.stocks);
+
+    console.log(props.loggedinUser.data);
+
+    
+
+      if(props.loggedinUser.data==='unsent'){
+  
+        window.location.assign('/');
+      }
+
+
+  },[props.loggedinUser.data])
 
 
   return (
@@ -37,9 +56,12 @@ const Dashboard = (props:PropsIn) => {
 }
 
 
-const mapStateToProps = (state:StoreState):{stocks:StockData[]}=>{
+const mapStateToProps = (state:StoreState):{stocks:StockData[],
+  loggedinUser:LoginStruc
+}=>{
   return {
-          stocks: state.stocks
+          stocks: state.stocks,
+          loggedinUser: state.loggedinUser
   }
 }
 

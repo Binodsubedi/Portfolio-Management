@@ -1,7 +1,7 @@
 import {LoginStruc, LoginUserAction} from './../actions/index'
 import { ActionTypes } from '../actions/types'
 
-export const loginUserReducer = (state:LoginStruc ={status:'unsent', 'data':'unsent'},action:LoginUserAction)=>{
+export const loginUserReducer = (state:LoginStruc ={status:'unsent', data:'unsent'},action:LoginUserAction)=>{
 
     switch (action.type){
 

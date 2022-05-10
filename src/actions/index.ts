@@ -45,10 +45,10 @@ export const login = (Username:string,password:string)=>{
     }
 }
 
-export const getStocks = ()=>{
+export const getStocks = (Username:string)=>{
     return async (dispatch:Dispatch)=>{
 
-        const response = await axios.get('http://localhost:3000/api/v1/stocks');
+        const response = await axios.get(`http://localhost:3000/api/v1/stocks/${Username}`);
 
         dispatch<StocksFetchAction>({
             type: ActionTypes.fetchStocks,
