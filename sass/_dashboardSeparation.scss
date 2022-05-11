@@ -18,6 +18,7 @@
     align-items: center;
     padding: 0 calc(2.5rem + 1vw);
     position: relative;
+    transition: all 0.4s ease-in-out;
 
     &__bars{
         position: absolute;
@@ -31,6 +32,7 @@
         align-items: center;
         background-color:aquamarine ;
         visibility: hidden;
+        cursor: pointer;
 
         @include media-medium{
             visibility: visible;
@@ -50,6 +52,21 @@
             height: 0.5rem;
             width: 4rem;
             background-color: var(--primary-color);
+            transition: all 0.4s ease-in-out;
+        }
+
+        &-1-active{
+            transform: rotate(45deg) translate(1rem,1rem);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        &-2-active{
+            opacity: 0;
+            transition: transform 0.4s ease-in-out;
+        }
+        &-3-active{
+            transform: rotate(-45deg) translate(0.6rem,-1rem);
+            transition: transform 0.4s ease-in-out;
         }
     }
 
@@ -166,6 +183,7 @@
 
 .dashboardheader-active{
     transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
 }
 
 .body{

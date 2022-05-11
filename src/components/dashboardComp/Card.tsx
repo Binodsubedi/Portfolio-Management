@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { StockData, getStocks } from '../../actions'
 import {connect} from 'react-redux';
 
@@ -32,6 +32,10 @@ const Card = (props:{data:newType,getStocks:any}) => {
     const soldQuantity = useRef<HTMLInputElement>(null);
     const soldPricePerUnit = useRef<HTMLInputElement>(null);
 
+    const [SoldQuantity, setSoldQuantity] = useState('');
+    const [SoldPricePerUnit, setSoldPricePerUnit] = useState('');
+
+
     // const itterateProps = ()=>{
 
     //         if(typeof data == 'object'){
@@ -62,6 +66,8 @@ const Card = (props:{data:newType,getStocks:any}) => {
         if(res.data.status === 'Success'){
             props.getStocks(data.Buyer);
             alert('Shares Sold Accounted');
+            setSoldQuantity('');
+            setSoldPricePerUnit('');
         }
 
 
@@ -104,8 +110,8 @@ const Card = (props:{data:newType,getStocks:any}) => {
 
     <div className="body__card-container--inner card-container--inner-9">
         <div className="body__card-container--inner__input">
-        <input type="number" placeholder='shares' ref={soldQuantity} />
-        <input type="number" placeholder='price/unit' ref={soldPricePerUnit} />
+        <input type="number" placeholder='shares' ref={soldQuantity} onChange={e=>setSoldQuantity(e.target.value)} value={SoldQuantity} />
+        <input type="number" placeholder='price/unit' ref={soldPricePerUnit} onChange={e=>setSoldPricePerUnit(e.target.value)} value={SoldPricePerUnit} />
         </div>
         <button onClick={e=>sellClick(e)} >Sell</button>
     </div>

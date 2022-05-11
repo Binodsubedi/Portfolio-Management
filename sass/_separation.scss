@@ -42,6 +42,19 @@
             background-color:rgb(218, 186, 186);
             transition: all 0.2s ease-in-out;
         }
+        a{
+            font-size: calc(1.6rem + 0.3vw);
+        }
+
+        @include media-small{
+            a{
+                font-size: calc(1.4rem + 0.2vw);
+            }
+            a:last-child{
+                padding:0.5rem;
+            }
+        }
+        
     }
 
 }
@@ -155,7 +168,8 @@
                 // align-items: center;
                 justify-content: center;
                 width: 30%;
-                border-bottom: 0.2rem solid black;
+                color: #00FFFF;
+                border-bottom: 0.2rem solid greenyellow;
                 h2{
                     text-align: center;
                     font-family:'Montserrat', sans-serif;
@@ -191,6 +205,7 @@
                         line-height: 2rem;
                         margin-bottom: 1.5rem;
                         margin-top: 1.2rem;
+                        color: #00FFFF;
                     }
                     input{
                         padding-left: 0.3rem;
@@ -214,6 +229,7 @@
                         letter-spacing: 0.2rem;
                         line-height: 2rem;
                         margin-bottom: 1.5rem;
+                        color: #00FFFF;
                     }
                     
                 }
@@ -248,6 +264,9 @@
                     margin-top: 0.5rem;
 
                 }
+                a{
+                    color: #00FFFF;
+                }
 
             }
 
@@ -261,7 +280,8 @@
                 // align-items: center;
                 justify-content: center;
                 width: 64%;
-                border-bottom: 0.2rem solid black;
+                color: #00FFFF;
+                border-bottom: 0.2rem solid greenyellow;
                 h2{
                     text-align: center;
                     font-family:'Montserrat', sans-serif;
@@ -298,6 +318,7 @@
                         line-height: 2rem;
                         margin-bottom: 1.5rem;
                         margin-top: 1.2rem;
+                        color: #00FFFF;
                     }
                     input{
                         padding-left: 0.3rem;
@@ -322,6 +343,7 @@
                         letter-spacing: 0.2rem;
                         line-height: 2rem;
                         margin-bottom: 1.5rem;
+                        color: #00FFFF;
                     }
                     
                 }
@@ -356,6 +378,9 @@
                     // font-weight: bold;
                     margin-top: 0.5rem;
 
+                }
+                a{
+                    color:#00FFFF;
                 }
 
             }

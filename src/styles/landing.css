@@ -74,6 +74,19 @@ p {
   transition: all 0.2s ease-in-out;
 }
 
+.header__links a {
+  font-size: calc(1.6rem + 0.3vw);
+}
+
+@media screen and (max-width: 420px) {
+  .header__links a {
+    font-size: calc(1.4rem + 0.2vw);
+  }
+  .header__links a:last-child {
+    padding: 0.5rem;
+  }
+}
+
 .home {
   grid-column: container-start / container-end;
   background-color: var(--primary-color);
@@ -180,7 +193,8 @@ p {
   flex-direction: column;
   justify-content: center;
   width: 30%;
-  border-bottom: 0.2rem solid black;
+  color: #00FFFF;
+  border-bottom: 0.2rem solid greenyellow;
 }
 
 .login-signup__container-inner-login__header h2 {
@@ -210,6 +224,7 @@ p {
   line-height: 2rem;
   margin-bottom: 1.5rem;
   margin-top: 1.2rem;
+  color: #00FFFF;
 }
 
 .login-signup__container-inner-login__fields--name input {
@@ -233,6 +248,7 @@ p {
   letter-spacing: 0.2rem;
   line-height: 2rem;
   margin-bottom: 1.5rem;
+  color: #00FFFF;
 }
 
 .login-signup__container-inner-login__button-container {
@@ -254,6 +270,10 @@ p {
   margin-top: 0.5rem;
 }
 
+.login-signup__container-inner-login__button-container a {
+  color: #00FFFF;
+}
+
 .login-signup__container-inner-signup {
   padding: calc(0.5rem + 0.5vw);
 }
@@ -262,7 +282,8 @@ p {
   display: flex;
   justify-content: center;
   width: 64%;
-  border-bottom: 0.2rem solid black;
+  color: #00FFFF;
+  border-bottom: 0.2rem solid greenyellow;
 }
 
 .login-signup__container-inner-signup__header h2 {
@@ -292,6 +313,7 @@ p {
   line-height: 2rem;
   margin-bottom: 1.5rem;
   margin-top: 1.2rem;
+  color: #00FFFF;
 }
 
 .login-signup__container-inner-signup__fields--name input {
@@ -315,6 +337,7 @@ p {
   letter-spacing: 0.2rem;
   line-height: 2rem;
   margin-bottom: 1.5rem;
+  color: #00FFFF;
 }
 
 .login-signup__container-inner-signup__button-container {
@@ -335,6 +358,10 @@ p {
   cursor: pointer;
   font-size: calc(1.2rem + 0.5vw);
   margin-top: 0.5rem;
+}
+
+.login-signup__container-inner-signup__button-container a {
+  color: #00FFFF;
 }
 
 .login-signup__container .inner-container-active {

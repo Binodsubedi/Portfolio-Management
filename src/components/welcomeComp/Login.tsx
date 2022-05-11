@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {connect} from 'react-redux';
 import {getStocks, StockData,login,LoginStruc} from './../../actions'
 import {StoreState} from './../../reducers'
@@ -51,6 +51,9 @@ const Login = (props:propsIn) => {
   
   const usernameSignupField = useRef<HTMLInputElement>(null);
   const passwordSignupField = useRef<HTMLInputElement>(null);
+
+  const [username, setUserName] = useState('');
+  const [pass, setPass] = useState('');
   
   const signupSlider = (e:any)=>{
 
@@ -97,7 +100,7 @@ const Login = (props:propsIn) => {
 
         navigate('/dashboard');
       
-      },1000)
+      },1100)
       // while(props.loggedinUser.data === 'unsent'){
         
       // }
@@ -125,7 +128,12 @@ const Login = (props:propsIn) => {
 
     if(res.data.status === 'success'){
       alert('New Account has been created');
+      setUserName('');
+      setPass('');
     }
+
+
+    // usernameSignupField.current?.value = '';
 
 
   }
@@ -144,7 +152,7 @@ const Login = (props:propsIn) => {
 
           <div className='login-signup__container-inner-login__fields--name'>
         <label htmlFor="name">Name:</label>
-        <input type="text" id='name' ref={usernameField} />
+        <input type="text" id='name' ref={usernameField}  />
           </div>
           <div className='login-signup__container-inner-login__fields--password'>
           <label htmlFor="pass">Password:</label>
@@ -169,11 +177,11 @@ const Login = (props:propsIn) => {
 
           <div className='login-signup__container-inner-signup__fields--name'>
         <label htmlFor="nameSignup">Name:</label>
-        <input type="text" id='nameSignup' ref={usernameSignupField} />
+        <input type="text" id='nameSignup' ref={usernameSignupField} onChange={e=>setUserName(e.target.value)} value={username} />
           </div>
           <div className='login-signup__container-inner-signup__fields--password'>
           <label htmlFor="passSignup">Password:</label>
-        <input type="password" id='passSignup' ref={passwordSignupField} />
+        <input type="password" id='passSignup' ref={passwordSignupField} onChange={e=>setPass(e.target.value)} value={pass} />
 
           </div>
           </div>

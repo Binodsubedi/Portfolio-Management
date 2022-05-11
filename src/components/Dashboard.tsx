@@ -42,6 +42,8 @@ const Dashboard = (props:PropsIn) => {
         window.location.assign('/');
       }
 
+      window.scrollTo({top:0});
+
 
   },[props.loggedinUser.data])
 

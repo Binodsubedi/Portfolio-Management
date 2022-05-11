@@ -34,6 +34,12 @@ p {
   grid-template-rows: 14vh min-content 20vh;
 }
 
+@media screen and (max-width: 780px) {
+  .createTransContainer {
+    grid-template-rows: min-content 20vh;
+  }
+}
+
 .createBody {
   grid-column: container-start / container-end;
   min-height: 86vh;
@@ -57,6 +63,7 @@ p {
   font-size: calc(1.4rem + 1vw);
   width: 20%;
   color: #00FFFF;
+  width: min-content;
   border-bottom: 0.2rem solid #00FFFF;
   text-align: center;
 }

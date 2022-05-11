@@ -22,6 +22,12 @@ const logoutUser = (e:any)=>{
 const Header = (props:propsIn) => {
 
   const searchBox = useRef<HTMLInputElement>(null);
+  const wholeHeader = useRef<HTMLDivElement>(null);
+  // const bars = useRef<HTMLDivElement>(null);
+  const bar1 = useRef<HTMLDivElement>(null);
+  const bar2 = useRef<HTMLDivElement>(null);
+  const bar3 = useRef<HTMLDivElement>(null);
+
 
   const searchStart = (e:any)=>{
 
@@ -34,12 +40,24 @@ const Header = (props:propsIn) => {
 
   };
 
+
+  const showNav = ()=>{
+    
+    bar1.current?.classList.toggle('dashboardheader__bars-1-active');
+    bar2.current?.classList.toggle('dashboardheader__bars-2-active');
+    bar3.current?.classList.toggle('dashboardheader__bars-3-active');
+    wholeHeader.current?.classList.toggle('dashboardheader-active')
+
+
+  }
+
+
   return (
-    <div className={props.classNm}>
-      <div className="dashboardheader__bars">
-        <div className="dashboardheader__bars-1"></div>
-        <div className="dashboardheader__bars-2"></div>
-        <div className="dashboardheader__bars-3"></div>
+    <div className={props.classNm} ref={wholeHeader}>
+      <div className="dashboardheader__bars" onClick={()=>showNav()}>
+        <div className="dashboardheader__bars-1" ref={bar1}></div>
+        <div className="dashboardheader__bars-2" ref={bar2}></div>
+        <div className="dashboardheader__bars-3" ref={bar3}></div>
       </div>
       <div className='dashboardheader__searchBar'>
         
