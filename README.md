@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
-##Master branch => front-end
-##Server branch => Node/express server
+Master branch => front-end
+Server branch => Node/express server
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
