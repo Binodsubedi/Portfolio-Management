@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import { connect } from 'react-redux'
 import { getStocks, LoginStruc} from '../../actions'
 import { StoreState } from '../../reducers';
+import AxiosConfig from '../axiosConfig';
 
 
 interface PropsIn{
@@ -32,7 +33,7 @@ const createSubmit = async (e:any)=>{
         totalCostPrice : totalCostPrice.current?.value
     } 
 
-    const resp = await axios.post('http://localhost:3000/api/v1/stocks/createTransaction',reqBody);
+    const resp = await AxiosConfig.post('/api/v1/stocks/createTransaction',reqBody);
 
     if(resp.data.status === 'success'){
         alert('New Transaction created');

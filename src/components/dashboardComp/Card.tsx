@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useRef, useState } from 'react'
 import { StockData, getStocks } from '../../actions'
 import {connect} from 'react-redux';
+import AxiosConfig from '../axiosConfig';
 
 
 // export interface PropsCard{
@@ -61,7 +62,7 @@ const Card = (props:{data:newType,getStocks:any}) => {
             soldPricePerUnit: soldPricePerUnit.current?.value
         }
 
-        const res = await axios.post('http://localhost:3000/api/v1/stocks/sellStock',reqBody);
+        const res = await AxiosConfig.post('/api/v1/stocks/sellStock',reqBody);
 
         if(res.data.status === 'Success'){
             props.getStocks(data.Buyer);

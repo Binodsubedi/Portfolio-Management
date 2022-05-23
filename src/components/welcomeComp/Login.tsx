@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {getStocks, StockData,login,LoginStruc} from './../../actions'
 import {StoreState} from './../../reducers'
 import {useNavigate} from 'react-router-dom';
+import AxiosConfig from '../axiosConfig';
 
 interface propsIn {
     classNm:string;
@@ -84,7 +85,7 @@ const Login = (props:propsIn) => {
 
     // props.login(Username, password);
     
-    const resp = await axios.post('http://localhost:3000/api/v1/user/login',{Username, password});
+    const resp = await AxiosConfig.post('/api/v1/user/login',{Username, password});
 
     // console.log(resp.data)
     // console.log()
@@ -124,7 +125,7 @@ const Login = (props:propsIn) => {
       password: passwordSignupField.current?.value
     }
 
-    const res = await axios.post('http://localhost:3000/api/v1/user/signup',reqBody);
+    const res = await AxiosConfig.post('/api/v1/user/signup',reqBody);
 
     if(res.data.status === 'success'){
       alert('New Account has been created');

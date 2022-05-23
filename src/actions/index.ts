@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {Dispatch} from 'redux'
 import { ActionTypes } from './types'
+import AxiosConfig from '../components/axiosConfig'
 export interface LoginStruc {
     status:string,
     data:string
@@ -35,7 +36,7 @@ export interface LoginUserAction {
 export const login = (Username:string,password:string)=>{
     return async (dispatch:Dispatch)=>{
 
-        const response = await axios.post('http://localhost:3000/api/v1/user/login', {Username,password});
+        const response = await AxiosConfig.post('/api/v1/user/login', {Username,password});
 
         dispatch<LoginUserAction>({
             type: ActionTypes.loginUser,
@@ -48,7 +49,7 @@ export const login = (Username:string,password:string)=>{
 export const getStocks = (Username:string)=>{
     return async (dispatch:Dispatch)=>{
 
-        const response = await axios.get(`http://localhost:3000/api/v1/stocks/${Username}`);
+        const response = await AxiosConfig.get(`/api/v1/stocks/${Username}`);
 
         dispatch<StocksFetchAction>({
             type: ActionTypes.fetchStocks,
@@ -60,7 +61,7 @@ export const getStocks = (Username:string)=>{
 export const searchStock = (stockName:string, Buyer:string)=>{
     return async(dispatch:Dispatch)=>{
 
-        const response = await axios.get(`http://localhost:3000/api/v1/stocks/${stockName}/${Buyer}`);
+        const response = await AxiosConfig.get(`/api/v1/stocks/${stockName}/${Buyer}`);
 
         dispatch<StocksFetchAction>({
             type: ActionTypes.fetchStocks,
